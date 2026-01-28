@@ -1,0 +1,19 @@
+# .gitignore
+
+# Dipendenze
+node_modules/
+
+# Build di produzione
+dist/
+
+# Cache di Astro (visibile nel tuo screenshot)
+.astro/
+
+# Variabili d'ambiente (non condividere mai le chiavi segrete!)
+.env
+.env.*
+!.env.example
+
+# File di sistema mac/windows
+.DS_Store
+Thumbs.db
