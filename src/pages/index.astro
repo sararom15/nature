@@ -91,47 +91,38 @@ import {
     <section id="storia" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-5/12">
-                    <div class="relative">
-                        <!-- Main Photo with subtle styling -->
-                        <div class="relative overflow-hidden rounded-sm shadow-2xl">
-                            <img 
-                                src="/famigliaGranoFoto.jpeg" 
-                                alt="Famiglia Romano nel campo di grano" 
-                                class="w-full h-auto object-cover"
-                            />
-                            <!-- Decorative corner accent -->
-                            <div class="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary/30 m-4"></div>
-                        </div>
-                        
-                        <!-- Logo Overlay Bottom Center with Animation & Hover -->
-                        <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-44 h-44 bg-white rounded-full shadow-2xl flex items-center justify-center z-20 border-2 border-stone-100 group/logo overflow-visible cursor-pointer opacity-0 animate-slide-in-bottom fill-mode-forwards">
-                            <img 
-                                src="/LogoAziendaRomano.png" 
-                                alt="Azienda Agricola Romano" 
-                                class="w-32 h-auto object-contain transition-transform duration-500 group-hover/logo:scale-110"
-                            />
-                            <!-- Circular animated rings on hover -->
-                            <div class="absolute inset-0 border-4 border-primary/0 rounded-full group-hover/logo:border-primary/20 transition-all duration-700 group-hover/logo:scale-95"></div>
+                <div class="lg:w-5/12 flex flex-col lg:relative mb-12 lg:mb-0">
+                    <!-- Logo (Top with slight overlap on Mobile, Bottom Overlay on Desktop) -->
+                    <div class="order-first lg:order-none w-44 h-44 bg-white rounded-full shadow-2xl flex items-center justify-center z-20 border-2 border-stone-100 group/logo overflow-visible cursor-pointer opacity-0 animate-slide-in-bottom fill-mode-forwards relative left-1/2 -mb-12 lg:mb-0 lg:absolute lg:-bottom-20 lg:top-auto">
+                        <img 
+                            src="/LogoAziendaRomano.png" 
+                            alt="Azienda Agricola Romano" 
+                            class="w-32 h-auto object-contain transition-transform duration-500 group-hover/logo:scale-110"
+                        />
+                        <!-- Circular animated rings on hover -->
+                        <div class="absolute inset-0 border-4 border-primary/0 rounded-full group-hover/logo:border-primary/20 transition-all duration-700 group-hover/logo:scale-95"></div>
 
-                            <!-- INTERACTIVE NOTES (Desktop Only) -->
-                            <div class="hidden lg:block">
-                                <!-- Note 1: Faraglioni -->
-                                <div class="absolute top-1/2 -left-48 -translate-y-1/2 w-40 opacity-0 group-hover/logo:opacity-100 transition-all duration-700 delay-100 translate-x-10 group-hover/logo:translate-x-0 pointer-events-none">
-                                    <div class="bg-white/95 backdrop-blur-sm p-3 rounded-sm shadow-xl border-l-2 border-primary text-left">
-                                        <p class="text-[10px] uppercase tracking-widest font-bold text-primary mb-1">Il Territorio</p>
-                                        <p class="text-xs text-textMain/70 leading-relaxed italic">I Faraglioni del Gargano: forza e legame profondo tra mare e terra.</p>
-                                    </div>
-                                </div>
-                                <!-- Note 2: Grifi -->
-                                <div class="absolute top-1/2 -right-48 -translate-y-1/2 w-40 opacity-0 group-hover/logo:opacity-100 transition-all duration-700 delay-200 -translate-x-10 group-hover/logo:translate-x-0 pointer-events-none">
-                                    <div class="bg-white/95 backdrop-blur-sm p-3 rounded-sm shadow-xl border-r-2 border-primary text-right">
-                                        <p class="text-[10px] uppercase tracking-widest font-bold text-primary mb-1">Lo Stemma</p>
-                                        <p class="text-xs text-textMain/70 leading-relaxed italic">I due Grifi: simbolo di perseveranza, sacrificio e continuità familiare.</p>
-                                    </div>
+                        <!-- INTERACTIVE NOTES (Desktop Only) -->
+                        <div class="hidden lg:block">
+                            <!-- Note: Grifi (Only this one per user request) -->
+                            <div class="absolute top-1/2 left-full -translate-y-1/2 w-48 ml-6 opacity-0 group-hover/logo:opacity-100 transition-all duration-700 delay-100 -translate-x-10 group-hover/logo:translate-x-0 pointer-events-none">
+                                <div class="bg-white/95 backdrop-blur-sm p-4 rounded-sm shadow-xl border-l-4 border-primary text-left">
+                                    <p class="text-[10px] uppercase tracking-widest font-bold text-primary mb-1">Lo Stemma</p>
+                                    <p class="text-xs text-textMain/70 leading-relaxed italic">I due Grifi: simbolo di perseveranza, sacrificio e continuità familiare.</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Image Wrapper -->
+                    <div class="relative overflow-hidden rounded-sm shadow-2xl">
+                        <img 
+                            src="/famigliaGranoFoto.jpeg" 
+                            alt="Famiglia Romano nel campo di grano" 
+                            class="w-full h-auto object-cover"
+                        />
+                        <!-- Decorative corner accent -->
+                        <div class="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary/30 m-4"></div>
                     </div>
                 </div>
                 <div class="lg:w-7/12">
