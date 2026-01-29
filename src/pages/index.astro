@@ -10,35 +10,29 @@ import {
 <Layout title="Nature - Un Gesto d'Amore | Azienda Agricola Romano">
     <!-- NAVBAR -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent text-white">
-        <div class="container mx-auto px-6 flex justify-between items-center">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-8 flex justify-between items-center">
             
             <!-- Logo Container -->
             <div class="flex items-center gap-6">
-                <!-- LOGO AZIENDA ROMANO -->
-                <img src="/LogoAziendaRomano.png" alt="Azienda Agricola Romano" class="h-12 w-auto object-contain brightness-0 invert" id="company-logo" />
-                <span id="alt-logo" style="display:none" class="text-lg font-bold border border-white p-1 text-white">AR</span>
-
-                <div id="nav-divider" class="hidden md:block border-l pl-6 border-white/50 h-10 flex items-center">
-                    <!-- LOGO NATURE -->
-                    <img src="/LogoNature.png" alt="NATURE" class="h-12 w-auto object-contain brightness-0 invert" id="nav-logo" />
-                    <span id="brand-text" style="display:none" class="text-xl font-serif font-bold tracking-wider text-white">
-                        NATURE
-                    </span>
-                </div>
+                <!-- LOGO NATURE -->
+                <img src="/LogoNature.png" alt="NATURE" class="h-12 w-auto object-contain brightness-0 invert" id="nav-logo" />
+                <span id="brand-text" style="display:none" class="text-xl font-serif font-bold tracking-wider text-white">
+                    NATURE
+                </span>
             </div>
 
             <!-- Desktop Menu -->
-            <div id="desktop-menu" class="hidden md:flex items-center space-x-8 text-white font-medium tracking-wide">
+            <div id="desktop-menu" class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-white font-medium tracking-wide text-lg">
                 <a href="#storia" class="hover:text-accent transition">Chi Siamo</a>
-                <a href="#filosofia" class="hover:text-accent transition text-sm">Filiera Corta e Made in Italy</a>
+                <a href="#filosofia" class="hover:text-accent transition">Filiera Corta e Made in Italy</a>
                 <a href="#prodotti" class="hover:text-accent transition">Prodotti</a>
-                <a href="#b2b" class="bg-primary text-white px-6 py-2 rounded-full hover:brightness-110 transition shadow-lg border border-transparent font-serif italic text-lg">
+                <a href="#b2b" class="bg-primary text-white px-6 py-2 rounded-full hover:brightness-110 transition shadow-lg border border-transparent font-serif italic">
                     Area B2B
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-primary bg-white p-2 rounded-md shadow-lg">
+            <button id="menu-btn" class="lg:hidden text-primary bg-white p-2 rounded-md shadow-lg">
                 <Menu />
             </button>
         </div>
@@ -86,7 +80,7 @@ import {
                 <a href="#prodotti" class="bg-primary text-white px-8 py-4 rounded-full font-serif italic font-bold text-xl hover:brightness-110 transition transform hover:-translate-y-1 shadow-xl flex items-center justify-center gap-3">
                     Scopri la Pasta <ChevronRight size={20} />
                 </a>
-                <a href="#storia" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-textMain transition flex items-center justify-center tracking-wide">
+                <a href="#storia" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-white hover:text-textMain transition flex items-center justify-center tracking-wide">
                     La Nostra Storia
                 </a>
             </div>
@@ -97,15 +91,47 @@ import {
     <section id="storia" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-4/12 flex flex-col items-center justify-center">
-                    <div class="relative group">
-                        <!-- Decorative elements around logo -->
-                        <div class="absolute -inset-10 bg-stone-50 rounded-full opacity-50 scale-75 group-hover:scale-100 transition-transform duration-700"></div>
-                        <img 
-                            src="/LogoAziendaRomano.png" 
-                            alt="Azienda Agricola Romano" 
-                            class="relative z-10 w-full max-w-[300px] h-auto object-contain drop-shadow-xl"
-                        />
+                <div class="lg:w-5/12">
+                    <div class="relative">
+                        <!-- Main Photo with subtle styling -->
+                        <div class="relative overflow-hidden rounded-sm shadow-2xl">
+                            <img 
+                                src="/famigliaGranoFoto.jpeg" 
+                                alt="Famiglia Romano nel campo di grano" 
+                                class="w-full h-auto object-cover"
+                            />
+                            <!-- Decorative corner accent -->
+                            <div class="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary/30 m-4"></div>
+                        </div>
+                        
+                        <!-- Logo Overlay Bottom Center with Animation & Hover -->
+                        <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-44 h-44 bg-white rounded-full shadow-2xl flex items-center justify-center z-20 border-2 border-stone-100 group/logo overflow-visible cursor-pointer opacity-0 animate-slide-in-bottom fill-mode-forwards">
+                            <img 
+                                src="/LogoAziendaRomano.png" 
+                                alt="Azienda Agricola Romano" 
+                                class="w-32 h-auto object-contain transition-transform duration-500 group-hover/logo:scale-110"
+                            />
+                            <!-- Circular animated rings on hover -->
+                            <div class="absolute inset-0 border-4 border-primary/0 rounded-full group-hover/logo:border-primary/20 transition-all duration-700 group-hover/logo:scale-95"></div>
+
+                            <!-- INTERACTIVE NOTES (Desktop Only) -->
+                            <div class="hidden lg:block">
+                                <!-- Note 1: Faraglioni -->
+                                <div class="absolute top-1/2 -left-48 -translate-y-1/2 w-40 opacity-0 group-hover/logo:opacity-100 transition-all duration-700 delay-100 translate-x-10 group-hover/logo:translate-x-0 pointer-events-none">
+                                    <div class="bg-white/95 backdrop-blur-sm p-3 rounded-sm shadow-xl border-l-2 border-primary text-left">
+                                        <p class="text-[10px] uppercase tracking-widest font-bold text-primary mb-1">Il Territorio</p>
+                                        <p class="text-xs text-textMain/70 leading-relaxed italic">I Faraglioni del Gargano: forza e legame profondo tra mare e terra.</p>
+                                    </div>
+                                </div>
+                                <!-- Note 2: Grifi -->
+                                <div class="absolute top-1/2 -right-48 -translate-y-1/2 w-40 opacity-0 group-hover/logo:opacity-100 transition-all duration-700 delay-200 -translate-x-10 group-hover/logo:translate-x-0 pointer-events-none">
+                                    <div class="bg-white/95 backdrop-blur-sm p-3 rounded-sm shadow-xl border-r-2 border-primary text-right">
+                                        <p class="text-[10px] uppercase tracking-widest font-bold text-primary mb-1">Lo Stemma</p>
+                                        <p class="text-xs text-textMain/70 leading-relaxed italic">I due Grifi: simbolo di perseveranza, sacrificio e continuità familiare.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="lg:w-7/12">
@@ -319,49 +345,6 @@ import {
         </div>
     </section>
 
-    <!-- SIMBOLOGIA & MARCHIO -->
-    <section class="py-24 bg-textMain text-stone-100 overflow-hidden relative">
-        <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-20 items-center">
-                <div>
-                    <span class="text-accent font-bold text-xs uppercase tracking-[0.2em] mb-4 block">Identità</span>
-                    <h2 class="text-4xl font-serif font-bold text-white mb-10">Il Nostro Simbolo</h2>
-                    <div class="space-y-10">
-                        <div class="flex gap-6">
-                            <div class="shrink-0 text-accent pt-1"><Mountain size={32} /></div>
-                            <div>
-                                <h3 class="text-2xl font-serif font-bold text-accent mb-2">I Faraglioni del Gargano</h3>
-                                <p class="leading-loose text-stone-300 font-light">
-                                    Rappresentano forza, purezza e il legame tra mare e terra. Un monumento naturale che diventa segno di identità.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6">
-                            <div class="shrink-0 text-accent pt-1"><Shield size={32} /></div>
-                            <div>
-                                <h3 class="text-2xl font-serif font-bold text-accent mb-2">Lo Stemma AR</h3>
-                                <p class="leading-loose text-stone-300 font-light">
-                                    Due Grifi che sorreggono due pilastri, simboleggiando la perseveranza e il sacrificio.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center items-center">
-                    <div class="border border-stone-800 p-16 rounded-sm bg-stone-900/30 backdrop-blur-sm flex flex-col items-center shadow-2xl">
-                        <div class="text-center">
-                            <img src="/LogoNature.png" alt="Nature Logo" class="h-32 mx-auto mb-6 brightness-0 invert opacity-90" id="footer-logo" />
-                            <h1 class="text-7xl font-serif font-bold text-white tracking-tighter" style="display:none" id="footer-logo-text">NATURE</h1>
-                            <div class="w-16 h-1 bg-primary mx-auto my-6"></div>
-                            <p class="text-2xl text-stone-200 font-serif italic">Un gesto d'amore</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- B2B & CONTACT FORM -->
     <section id="b2b" class="py-24 bg-gradient-to-br from-white to-stone-50">
         <div class="container mx-auto px-6">
@@ -424,17 +407,14 @@ import {
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
-        const navDivider = document.getElementById('nav-divider');
         const brandText = document.getElementById('brand-text');
         const desktopMenu = document.getElementById('desktop-menu');
         const navLogo = document.getElementById('nav-logo');
         const heroLogo = document.getElementById('hero-logo');
         const footerLogo = document.getElementById('footer-logo');
-        const companyLogo = document.getElementById('company-logo');
-        const altLogo = document.getElementById('alt-logo');
 
         // Logo Error Handlers
-        [navLogo, heroLogo, footerLogo, companyLogo].forEach(logo => {
+        [navLogo, heroLogo, footerLogo].forEach(logo => {
             if (logo) {
                 logo.onerror = () => {
                    logo.style.display = 'none';
@@ -442,7 +422,6 @@ import {
                    if (logo.id === 'nav-logo') altId = 'brand-text';
                    else if (logo.id === 'hero-logo') altId = 'hero-title-text';
                    else if (logo.id === 'footer-logo') altId = 'footer-logo-text';
-                   else if (logo.id === 'company-logo') altId = 'alt-logo';
                    
                    const altEl = document.getElementById(altId);
                    if (altEl) altEl.style.display = 'block';
@@ -467,19 +446,15 @@ import {
                 navbar?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-2');
                 navbar?.classList.remove('bg-transparent', 'text-white');
                 navbar?.classList.add('text-textMain');
-                navDivider?.classList.replace('border-white/50', 'border-stone-100');
                 if(brandText) brandText.classList.replace('text-white', 'text-primary');
                 desktopMenu?.classList.replace('text-white', 'text-textMain');
                 if(navLogo) navLogo.classList.remove('brightness-0', 'invert');
-                if(companyLogo) companyLogo.classList.remove('brightness-0', 'invert');
             } else {
                 navbar?.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-2', 'text-textMain');
                 navbar?.classList.add('bg-transparent', 'text-white');
-                navDivider?.classList.replace('border-stone-100', 'border-white/50');
                 if(brandText) brandText.classList.replace('text-primary', 'text-white');
                 desktopMenu?.classList.replace('text-textMain', 'text-white');
                 if(navLogo) navLogo.classList.add('brightness-0', 'invert');
-                if(companyLogo) companyLogo.classList.add('brightness-0', 'invert');
             }
         });
     </script>
@@ -500,11 +475,23 @@ import {
     .animate-fade-in-down {
         animation: fadeInDown 0.4s ease-out forwards;
     }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
     .animate-fade-in {
         animation: fadeIn 0.8s ease-out forwards;
+    }
+    @keyframes slideInBottom {
+        from { 
+            opacity: 0; 
+            transform: translate(-50%, 100px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translate(-50%, 0); 
+        }
+    }
+    .animate-slide-in-bottom {
+        animation: slideInBottom 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .fill-mode-forwards {
+        animation-fill-mode: forwards;
     }
 </style>
