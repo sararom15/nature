@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SEO from '../components/SEO.astro';
 
 interface Props {
 	title: string;
@@ -9,13 +10,9 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="it">
+<html lang="it" class="bg-textMain" style="background-color: #333333;">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/LogoNature.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<SEO title={title} />
 		
 		<!-- IMPORTAZIONE FONT DA GOOGLE FONTS -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +22,7 @@ const { title } = Astro.props;
 		<!-- Icons Script (Lucide) -->
 		<script src="https://unpkg.com/lucide@latest"></script>
 	</head>
-	<body class="font-sans text-stone-800 bg-stone-50 overflow-x-hidden">
+	<body class="font-sans text-stone-800 bg-textMain overflow-x-hidden min-h-screen flex flex-col" style="background-color: #333333;">
 		<slot />
 		
 		<script>

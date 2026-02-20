@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description = "NatureMadeInItaly: prodotti autentici della Daunia rurale in Puglia, frutto della filiera corta e della tradizione della Famiglia Romano, 100% Made in Italy.",
+  image = "/LogoNature.png",
+  type = "website",
+} = Astro.props;
+
+const siteName = "Nature - Un Gesto d'Amore";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.url);
+
+const jsonLD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Azienda Agricola Romano",
+  "url": Astro.site,
+  "logo": new URL("/LogoNature.png", Astro.url).href,
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Poggio Imperiale",
+    "addressLocality": "Poggio Imperiale",
+    "addressRegion": "FG",
+    "postalCode": "71010",
+    "addressCountry": "IT"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "az.agricolaromano@outlook.it",
+    "contactType": "customer service"
+  }
+};
+---
+
+<!-- Global Metadata -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<link rel="icon" type="image/png" href="/LogoNature.png" />
+<link rel="canonical" href={canonicalURL} />
+<title>{title} | {siteName}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content="prodotti filiera corta Puglia, Daunia rurale Made in Italy, Nature Made in Italy, Famiglia Romano prodotti, eccellenze agroalimentari Puglia" />
+<meta name="author" content="Azienda Agricola Romano" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:site_name" content={siteName} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={socialImageURL} />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLD)} />

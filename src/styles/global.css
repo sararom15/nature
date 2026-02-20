@@ -78,9 +78,14 @@
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-neutral;
+    @apply bg-textMain;
 }
 
 ::-webkit-scrollbar-thumb {
     @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+}
+
+/* Ensure global dark background to avoid white space */
+html, body {
+    background-color: #333333; /* textMain */
 }
