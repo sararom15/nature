@@ -401,18 +401,23 @@ import {
                     </p>
                     
                     <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                        <a href="mailto:az.agricolaromano@outlook.it" class="flex flex-col items-center gap-4 group cursor-pointer">
-                            <div class="bg-primary/20 p-5 rounded-full group-hover:bg-primary transition-all duration-300 scale-110">
-                                <Mail size={28} class="text-white" />
+                    <div class="flex flex-row items-center justify-center gap-12 md:gap-16 lg:gap-24">
+                        <a href="mailto:az.agricolaromano@outlook.it" class="group transition-transform hover:scale-110" title="Inviaci un'email">
+                            <div class="bg-primary/20 p-5 rounded-full group-hover:bg-primary transition-all duration-300">
+                                <Mail size={32} class="text-white" />
                             </div>
-                            <span class="font-light tracking-wide text-lg text-stone-200 group-hover:text-white transition">az.agricolaromano@outlook.it</span>
                         </a>
-                        <a href="tel:+393532125600" class="flex flex-col items-center gap-4 group cursor-pointer">
-                            <div class="bg-primary/20 p-5 rounded-full group-hover:bg-primary transition-all duration-300 scale-110">
-                                <Phone size={28} class="text-white" />
+                        <a href="tel:+393532125600" class="group transition-transform hover:scale-110" title="Chiamaci">
+                            <div class="bg-primary/20 p-5 rounded-full group-hover:bg-primary transition-all duration-300">
+                                <Phone size={32} class="text-white" />
                             </div>
-                            <span class="font-light tracking-wide text-lg text-stone-200 group-hover:text-white transition">+39 353 2125 600</span>
                         </a>
+                        <a href="https://wa.me/393532125600" target="_blank" rel="noopener noreferrer" class="group transition-transform hover:scale-110" title="Scrivici su WhatsApp">
+                            <div class="bg-primary/20 p-5 rounded-full group-hover:bg-primary transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                            </div>
+                        </a>
+                    </div>
                     </div>
 
                     <div class="mt-16 pt-10 border-t border-white/10 w-full">
@@ -464,6 +469,10 @@ import {
                         <li class="flex items-center gap-3">
                             <Phone size={18} class="text-primary shrink-0" />
                             <a href="tel:+393532125600" class="hover:text-primary transition">+39 353 2125 600</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary shrink-0 lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                            <a href="https://wa.me/393532125600" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition">WhatsApp</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <Mail size={18} class="text-primary shrink-0" />
