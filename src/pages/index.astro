@@ -284,6 +284,11 @@ import {
                     Grano duro 100% italiano, trafilatura al bronzo ed essiccazione lenta. 
                     Ogni formato racconta una storia di gusto.
                 </p>
+                {import.meta.env.DEV && (
+                    <a href="/prove-foto" class="inline-block mt-6 text-sm text-primary underline underline-offset-4">
+                        Apri la prova delle nuove fotografie →
+                    </a>
+                )}
             </div>
 
             <div id="product-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">

@@ -1,0 +1,257 @@
+---
+import '../styles/global.css';
+import { studyCards, photoSrc, photoSrcSet } from '../data/photo-study';
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Prova fotografica della collezione | Nature</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  </head>
+  <body class="font-sans text-textMain bg-white">
+    <header class="study-header">
+      <a href="/#prodotti" aria-label="Torna alla collezione Nature"><img src="/LogoNature.png" alt="Nature" width="116" height="60" /></a>
+      <span>Studio fotografico <span aria-hidden="true">/</span> Prova 01</span>
+      <a class="back-link" href="/#prodotti">Torna al sito <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section id="prodotti" class="study-section" aria-labelledby="collection-title">
+        <div class="collection-heading">
+          <p class="eyebrow">La nostra collezione</p>
+          <h1 id="collection-title">Pasta Artigianale</h1>
+          <p>Una confezione da riconoscere. Una materia da scoprire.<br class="desktop-break" /> Proviamo le fotografie nello stile della collezione.</p>
+        </div>
+
+        <div class="study-controls">
+          <fieldset>
+            <legend>Il taglio della scheda</legend>
+            <div class="ratio-options">
+              <label><input type="radio" name="ratio" value="portrait" checked /><span>4:5 <small>Consigliato</small></span></label>
+              <label><input type="radio" name="ratio" value="square" /><span>1:1 <small>Quadrato</small></span></label>
+              <label><input type="radio" name="ratio" value="landscape" /><span>4:3 <small>Attuale</small></span></label>
+              <label><input type="radio" name="ratio" value="original" /><span>2:3 <small>Foto intera</small></span></label>
+            </div>
+          </fieldset>
+          <p id="ratio-note" aria-live="polite">Il 4:5 valorizza la confezione e lascia spazio al dettaglio. Il taglio è uguale per tutte le foto.</p>
+        </div>
+
+        <div id="photo-grid" class="photo-grid" data-ratio="portrait">
+          {studyCards.map((card, index) => {
+            const photo = card.photos[0];
+            return (
+              <article class="photo-card" data-card={card.id}>
+                <p class="category">{card.category}</p>
+                <button type="button" class="photo-frame" data-enlarge aria-label={`Apri la foto intera: ${photo.alt}`}>
+                  <img
+                    src={photoSrc(photo.id)} srcset={photoSrcSet(photo.id)}
+                    sizes="(min-width: 1440px) 432px, (min-width: 1024px) calc((100vw - 144px) / 3), (min-width: 640px) calc((100vw - 104px) / 2), calc(100vw - 40px)"
+                    width="960" height="1440" alt={photo.alt}
+                    loading={index < 3 ? 'eager' : 'lazy'} decoding="async"
+                    data-photo-image
+                  />
+                  <span class="enlarge-hint">Foto intera <span aria-hidden="true">↗</span></span>
+                </button>
+                <div class="card-heading"><h2>{card.name}</h2><span>{card.role}</span></div>
+                <div class="photo-choice">
+                  <label for={`photo-${card.id}`}>Scatto da confrontare</label>
+                  <select id={`photo-${card.id}`} aria-label={`Scatto da confrontare: ${card.name}, ${card.role}`} data-photo-select>
+                    {card.photos.map((candidate) => (
+                      <option value={candidate.id} data-alt={candidate.alt} data-file={candidate.file}>{candidate.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <p class="source-file" data-source>{photo.file}</p>
+                <p class="photo-note">{card.note}</p>
+              </article>
+            );
+          })}
+        </div>
+
+        <aside class="proof-note">
+          <span class="note-mark" aria-hidden="true">i</span>
+          <p><strong>Sono provini fotografici.</strong> Le scritte sulle linguine e sugli esagoni sono già nei file: alcuni tagli le nascondono, ma per il sito servono gli originali senza numeri e annotazioni. Il confronto A/B delle linguine cambia il file, senza aggiungere filtri.</p>
+        </aside>
+      </section>
+
+      <section class="direction-section" aria-labelledby="direction-title">
+        <div class="direction-intro">
+          <p class="eyebrow">La direzione proposta</p>
+          <h2 id="direction-title">Riconoscere il prodotto.<br /><em>Sentire la materia.</em></h2>
+          <p>Per la collezione sceglierei una confezione frontale in 4:5, con il dettaglio disponibile al tocco o al clic. Stessa luce, stesso fondo e dimensione visiva coerente per tutti i formati.</p>
+        </div>
+        <div class="direction-points">
+          <div><span>01</span><div><h3>Una coppia di foto per formato</h3><p>Confezione con marchio leggibile + macro della pasta. La vista laterale può restare un'immagine aggiuntiva.</p></div></div>
+          <div><span>02</span><div><h3>Luce morbida, superficie leggibile</h3><p>Usare 0012-a come riferimento per la confezione e 0014-a per la texture. Controllare i riflessi del sacchetto e conservare volume e colore della pasta.</p></div></div>
+          <div><span>03</span><div><h3>Comporre già per il sito</h3><p>Provare una guida 4:5 in ripresa, con circa il 10% di margine sopra e sotto al prodotto. Fotocamera, base d'appoggio e fondo devono restare coerenti.</p></div></div>
+          <div><span>04</span><div><h3>File puliti e colore uniforme</h3><p>Consegnare foto senza scritte, profilo sRGB e almeno 2400 px sul lato lungo. Confermare il colore reale confrontando lo scatto con la confezione.</p></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="study-footer"><span>Nature · Un gesto d'amore</span><a href="/#prodotti">Rivedi la collezione attuale <span aria-hidden="true">↗</span></a></footer>
+
+    <dialog id="photo-dialog" aria-labelledby="dialog-caption">
+      <div class="dialog-content">
+        <button type="button" class="dialog-close" autofocus>Chiudi <span aria-hidden="true">×</span></button>
+        <img id="dialog-image" width="960" height="1440" alt="" />
+        <p id="dialog-caption"></p>
+      </div>
+    </dialog>
+
+    <script>
+      import { photoSrc, photoSrcSet, photoMaxWidth } from '../data/photo-study';
+
+      const grid = document.querySelector<HTMLElement>('#photo-grid');
+      const ratioNote = document.querySelector<HTMLElement>('#ratio-note');
+      const notes: Record<string, string> = {
+        portrait: 'Il 4:5 valorizza la confezione e lascia spazio al dettaglio. Il taglio è uguale per tutte le foto.',
+        square: 'Il quadrato è più compatto, ma riduce il margine sopra e sotto: controlla soprattutto le confezioni lunghe.',
+        landscape: 'È il riquadro della collezione attuale: il ritaglio taglia le confezioni verticali. Funziona meglio per i dettagli.',
+        original: 'La fotografia completa in 2:3: nessun ritaglio. Sono visibili anche i numeri e le annotazioni del set.',
+      };
+      document.querySelectorAll<HTMLInputElement>('input[name="ratio"]').forEach((input) => {
+        input.addEventListener('change', () => {
+          if (!input.checked || !grid || !ratioNote) return;
+          grid.dataset.ratio = input.value;
+          ratioNote.textContent = notes[input.value];
+        });
+      });
+
+      const dialog = document.querySelector<HTMLDialogElement>('#photo-dialog');
+      const dialogImage = document.querySelector<HTMLImageElement>('#dialog-image');
+      const dialogCaption = document.querySelector<HTMLElement>('#dialog-caption');
+
+      document.querySelectorAll<HTMLElement>('[data-card]').forEach((card) => {
+        const select = card.querySelector<HTMLSelectElement>('[data-photo-select]');
+        const image = card.querySelector<HTMLImageElement>('[data-photo-image]');
+        const source = card.querySelector<HTMLElement>('[data-source]');
+        const enlarge = card.querySelector<HTMLButtonElement>('[data-enlarge]');
+        if (!select || !image || !source || !enlarge) return;
+
+        select.addEventListener('change', () => {
+          const option = select.selectedOptions[0];
+          image.srcset = photoSrcSet(select.value);
+          image.src = photoSrc(select.value);
+          image.alt = option.dataset.alt || '';
+          source.textContent = option.dataset.file || '';
+          enlarge.setAttribute('aria-label', `Apri la foto intera: ${image.alt}`);
+        });
+
+        enlarge.addEventListener('click', () => {
+          if (!dialog || !dialogImage || !dialogCaption) return;
+          dialogImage.src = photoSrc(select.value, photoMaxWidth(select.value));
+          dialogImage.alt = image.alt;
+          dialogCaption.textContent = `${source.textContent} · Foto intera, senza ritaglio`;
+          dialog.showModal();
+        });
+      });
+      document.querySelector('.dialog-close')?.addEventListener('click', () => dialog?.close());
+      dialog?.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(html) { background: #fff; }
+  body { margin: 0; }
+  a, button, input, select { -webkit-tap-highlight-color: transparent; }
+  a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid #2c8597; outline-offset: 5px; }
+  .study-header { max-width: 1440px; margin: auto; padding: 22px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid #e7e5e4; }
+  .study-header img { width: 100px; height: 52px; object-fit: contain; }
+  .study-header > span { color: #68635e; font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+  .study-header > span span { margin: 0 12px; color: #d64923; }
+  .back-link, .study-footer a { font-size: 13px; }
+  .back-link span, .study-footer a span { color: #d64923; margin-left: 8px; }
+  .study-section { max-width: 1440px; margin: auto; padding: 70px 40px 64px; }
+  .collection-heading { text-align: center; margin-bottom: 42px; }
+  .eyebrow { color: #d64923; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 18px; }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+  h1 { font-size: clamp(36px, 4vw, 52px); font-weight: 700; margin-bottom: 18px; line-height: 1.15; }
+  .collection-heading > p:last-child { color: #746e68; line-height: 1.7; font-size: 17px; font-weight: 300; }
+  .study-controls { display: flex; justify-content: space-between; gap: 32px; align-items: center; padding: 22px 24px; margin-bottom: 38px; background: #f7f6f2; border: 1px solid #e9e6de; }
+  fieldset { min-width: 0; }
+  legend { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  .ratio-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ratio-options label { position: relative; cursor: pointer; }
+  .ratio-options input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .ratio-options label > span { display: flex; align-items: center; gap: 7px; padding: 10px 13px; background: #fff; border: 1px solid #ddd8cf; font-size: 13px; font-weight: 700; transition: border-color .15s, background .15s; }
+  .ratio-options small { font-size: 11px; font-weight: 400; }
+  .ratio-options input:checked + span { background: #333; border-color: #333; color: #fff; }
+  .ratio-options input:focus-visible + span { outline: 3px solid #2c8597; outline-offset: 3px; }
+  #ratio-note { max-width: 300px; font-size: 13px; line-height: 1.6; color: #67605a; }
+  .photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 32px; }
+  .category { color: #81776e; font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: .15em; margin-bottom: 13px; }
+  .photo-frame { width: 100%; display: block; position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: #e7e4df; cursor: zoom-in; }
+  .photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  [data-ratio='square'] .photo-frame { aspect-ratio: 1; }
+  [data-ratio='landscape'] .photo-frame { aspect-ratio: 4 / 3; }
+  [data-ratio='landscape'] .photo-frame img { object-position: center; }
+  [data-ratio='original'] .photo-frame { aspect-ratio: 2 / 3; }
+  .enlarge-hint { position: absolute; right: 12px; bottom: 12px; padding: 7px 10px; background: rgb(255 255 255 / 92%); color: #484039; font-size: 10px; letter-spacing: .03em; }
+  .enlarge-hint span { margin-left: 10px; }
+  .card-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; margin: 19px 0 16px; }
+  .card-heading h2 { font-size: 28px; font-weight: 700; }
+  .card-heading > span { color: #2c8597; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 13px; }
+  .photo-choice label { display: block; font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #77716a; margin-bottom: 6px; }
+  .photo-choice select { width: 100%; min-height: 42px; font-size: 13px; background: #fff; border: 1px solid #dfdbd4; border-radius: 0; padding: 9px 10px; cursor: pointer; }
+  .source-file { font-size: 11px; color: #716b65; margin-top: 8px; }
+  .photo-note { color: #6d665f; font-size: 13px; line-height: 1.7; border-top: 1px solid #ece9e3; margin-top: 14px; padding-top: 13px; }
+  .proof-note { display: flex; gap: 14px; margin-top: 40px; border-top: 1px solid #e9e6df; padding-top: 22px; color: #736b64; font-size: 12px; line-height: 1.7; }
+  .proof-note strong { color: #433b34; }
+  .note-mark { border: 1px solid #c6b8a7; width: 19px; height: 19px; line-height: 17px; border-radius: 50%; text-align: center; flex-shrink: 0; font-family: Georgia, serif; }
+  .direction-section { padding: 64px max(40px, calc((100vw - 1360px) / 2)); background: #f7f6f2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .direction-intro h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.3; margin-bottom: 22px; }
+  .direction-intro h2 em { color: #d64923; }
+  .direction-intro > p:last-child { max-width: 450px; color: #736b64; font-size: 15px; line-height: 1.8; }
+  .direction-points { display: grid; gap: 24px; }
+  .direction-points > div { display: flex; gap: 17px; }
+  .direction-points > div > span { color: #d64923; font-size: 12px; padding-top: 4px; }
+  .direction-points h3 { font-size: 19px; margin-bottom: 6px; }
+  .direction-points p { color: #736b64; font-size: 13px; line-height: 1.7; }
+  .study-footer { display: flex; justify-content: space-between; gap: 20px; padding: 26px 40px; font-size: 12px; color: #746d66; }
+  dialog { max-width: 95vw; max-height: 95vh; border: 0; padding: 0; background: #f7f6f2; color: #333; }
+  dialog::backdrop { background: rgb(28 25 23 / 85%); }
+  .dialog-content { display: flex; flex-direction: column; align-items: center; padding: 14px; }
+  .dialog-close { align-self: flex-end; padding: 7px 10px; margin-bottom: 8px; font-size: 13px; }
+  .dialog-close span { font-size: 22px; margin-left: 12px; vertical-align: middle; }
+  #dialog-image { width: auto; height: 73vh; max-width: 85vw; object-fit: contain; }
+  #dialog-caption { font-size: 12px; padding: 12px 4px 2px; text-align: center; }
+  @media (max-width: 1100px) {
+    .study-controls { align-items: flex-start; flex-direction: column; gap: 12px; }
+    #ratio-note { max-width: none; }
+  }
+  @media (max-width: 1023px) {
+    .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; }
+    .direction-section { gap: 36px; }
+  }
+  @media (max-width: 639px) {
+    .study-header { padding: 14px 20px; }
+    .study-header img { width: 80px; height: 44px; }
+    .study-header > span { display: none; }
+    .study-section { padding: 42px 20px; }
+    .collection-heading { margin-bottom: 30px; }
+    .collection-heading > p:last-child { font-size: 16px; }
+    .desktop-break { display: none; }
+    .study-controls { padding: 16px; margin-bottom: 28px; }
+    .ratio-options { display: grid; grid-template-columns: 1fr 1fr; }
+    .ratio-options label > span { justify-content: center; padding: 10px 8px; }
+    fieldset { width: 100%; }
+    .photo-grid { grid-template-columns: 1fr; gap: 36px; }
+    .direction-section { padding: 42px 20px; grid-template-columns: 1fr; }
+    .study-footer { padding: 22px 20px; flex-direction: column; gap: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html), :global(body) { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+</style>
