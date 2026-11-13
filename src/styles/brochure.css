@@ -1,0 +1,284 @@
+/* =====================================================================
+   Stile della brochure Nature
+   Caricato dopo style.css e contacts.css: ne riprende il linguaggio grafico
+   (fondo bianco, celeste e arancione pieni, cerchi, archi, capsule),
+   i caratteri (Lato per i testi, corsivo pesante per i titoli) e
+   porta i testi a dimensioni più leggibili.
+   ===================================================================== */
+
+:root{
+  --paper:#fff;
+  --ink:#2e3b40;
+  --text:#454f52;
+  --muted:#5b6669;
+  --blue:#3da4b0;
+  --blue-deep:#3da4b0;
+  --teal-dark:#3d8388;
+  --tint:#edf6f7;
+  --orange:#f28c00;
+  /* Arancione per le scritte su bianco: più scuro, per restare leggibile. */
+  --orange-text:#c86400;
+  --orange-title:#d46a00;
+  --line:#dfe5e4;
+  --display:'Bitter',Georgia,serif;
+  --sans:'Lato','Helvetica Neue',Arial,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+
+/* ---------- Tipografia ---------- */
+body{font:18px/1.65 var(--sans);color:var(--text);background:var(--paper)}
+h1,h2{font-family:var(--display);font-style:italic;font-weight:800;letter-spacing:-.5px;line-height:1.08;color:var(--ink)}
+h1{font-size:clamp(44px,5.4vw,80px)}
+h2{font-size:clamp(34px,3.7vw,56px)}
+h1 em,h2 em{font-family:inherit;font-size:1em;font-weight:inherit;color:var(--orange-title)}
+h3{font-family:var(--display);font-style:italic;font-weight:700;font-size:26px;line-height:1.25;color:var(--ink)}
+p{font-size:inherit}
+strong{font-weight:700}
+
+/* Occhiello: corsivo come "La filiera corta che crea valore". */
+.eyebrow{font:italic 700 18px/1.4 var(--sans);letter-spacing:0;text-transform:none;color:var(--muted);margin-bottom:20px}
+.eyebrow:before{width:28px;height:4px;border-radius:4px;margin-right:12px}
+
+.topline{font-size:13px;letter-spacing:1.6px;padding-block:10px;color:#0b2a33}
+#main-navigation{font-size:16px;font-weight:700}
+nav a{position:relative}
+nav a:not(.nav-box):after{content:'';position:absolute;left:0;right:0;bottom:2px;height:3px;border-radius:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav a:not(.nav-box):hover:after,nav a.active:not(.nav-box):after{transform:scaleX(1)}
+nav a.active{border-bottom:0}
+.nav-box{border:0;border-radius:999px;background:var(--orange);color:var(--ink);padding:11px 22px;transition:background .25s,color .25s}
+.nav-box:hover,.nav-box.active{background:var(--blue);color:#fff}
+
+/* Testi correnti più grandi */
+.split p,.prose p{color:var(--text)}
+.section-heading p{font-size:18px;max-width:420px;color:var(--muted)}
+.page-head p{font-size:21px;line-height:1.55;color:var(--muted)}
+.hero-text p{font-size:20px}
+.number,.badge{font-size:14px;letter-spacing:1px}
+.note{font-size:15px}
+.quote{font:italic 700 26px/1.45 var(--sans);color:var(--ink);border-left:4px solid var(--orange);border-radius:2px}
+.process p,.timeline p,.technical p,.box-card p{font-size:17px}
+.process h3,.timeline h3{font-size:25px}
+summary{font-size:20px}
+details p{font-size:17px}
+form label{font-size:15px;font-weight:700}
+.form-status,.email-warning,.contact-topic-help{font-size:16px}
+.request-fields legend{font-size:15px;font-weight:700}
+.dialog-grid p{font-size:17px}
+.dialog-grid h2{font-size:clamp(38px,4vw,52px)}
+.origin-photo figcaption{font-size:15px}
+.territory-caption strong{font-family:var(--display);font-style:italic;font-weight:800}
+.territory-caption .eyebrow{font-size:15px;color:#fff}
+.territory-caption small{font-size:13px}
+.map-attribution{font-size:13px}
+.map-credits summary,.map-credits p{font-size:13px}
+.why-facts{font-size:17px}
+.topic-who{font-size:13px}
+.topic-card p{font-size:16px}
+.topic-cta{font-size:15px}
+.steps p{font-size:17px}
+.map-pill{font-size:14px}
+.location-address{font-size:17px}
+.location-address strong,.place strong{font-family:var(--display);font-style:italic;font-weight:800}
+.company-data{font-size:16px}
+.social-link{font-size:15px}
+.product-gallery .note{font-size:14px}
+
+/* ---------- Pulsanti e link: capsule arrotondate ---------- */
+.button,.hero .button{font:700 16px/1.3 var(--sans);border-radius:999px;padding:15px 28px;gap:22px;transition:background .25s,border-color .25s,color .25s,transform .25s var(--ease),box-shadow .25s}
+.button span{transition:transform .3s var(--ease)}
+.button:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px #0e3a4080}
+.button:hover span{transform:translate(3px,-3px)}
+.button.light{background:#fff;border-color:#fff;color:var(--ink)}
+.text-link,.hero .text-link{font:700 16px/1.4 var(--sans);border-bottom:3px solid var(--orange);padding-bottom:4px;transition:color .2s}
+.text-link:hover{color:var(--orange-text)}
+.blue-section .text-link:hover{color:var(--ink)}
+
+/* ---------- Hero: copertina celeste con cerchi arancioni ---------- */
+.hero{background:var(--blue);color:#fff;min-height:clamp(600px,84vh,800px);isolation:isolate}
+.hero:after{content:none}
+.hero-text{z-index:2;width:46%;max-width:640px}
+.hero h1,.hero h1 em,.hero-text p,.hero .eyebrow,.hero .text-link,.hero-foot{color:#fff}
+.hero .eyebrow:before{background:var(--orange)}
+.hero .text-link:hover{color:var(--ink)}
+.hero-text p{max-width:470px}
+.hero-foot{font-size:12px;letter-spacing:2px;font-weight:700}
+.hero-visual{position:absolute;z-index:1;right:6%;top:50%;width:min(44vw,620px);aspect-ratio:1;transform:translateY(-50%)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% 50%;border-radius:50%;box-shadow:0 40px 70px -30px #0e3a4099;animation:hero-in 1.1s var(--ease) both}
+.hero-disc{position:absolute;left:-24%;bottom:-6%;width:62%;aspect-ratio:1;border-radius:50%;background:var(--orange);animation:hero-in 1.1s .15s var(--ease) both}
+/* Cerchio che esce dall'angolo in alto a destra, con l'ombra della copertina. */
+.hero-sun{position:absolute;z-index:0;top:calc(-1 * clamp(80px,11vw,190px));right:calc(-1 * clamp(60px,8vw,140px));width:clamp(200px,24vw,400px);aspect-ratio:1;border-radius:50%;background:linear-gradient(115deg,var(--orange) 40%,#a5612a 52%,var(--orange) 64%);opacity:.95}
+@keyframes hero-in{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+
+/* ---------- Intestazioni di pagina: capsula arancione e cerchio celeste (pag. 3) ---------- */
+.page-head{position:relative;max-width:none;padding-right:clamp(120px,30vw,480px)}
+.page-head:before{content:'';position:absolute;top:0;right:clamp(110px,18vw,300px);width:clamp(70px,8vw,130px);height:clamp(150px,20vw,290px);border-radius:0 0 999px 999px;background:var(--orange);animation:pill-drop 1s var(--ease) both}
+.page-head:after{content:'';position:absolute;top:clamp(50px,6vw,100px);right:calc(-1 * clamp(40px,4vw,80px));width:clamp(150px,17vw,280px);aspect-ratio:1;border-radius:50%;background:var(--blue);animation:hero-in 1s .2s var(--ease) both}
+.page-head>*{position:relative;z-index:1}
+@keyframes pill-drop{from{transform:translateY(-100%)}to{transform:none}}
+
+/* ---------- Sezioni ---------- */
+.origin-section{background:var(--tint)}
+.blue-section h2,.blue-section h3,.blue-section h2 em{color:#fff}
+.blue-section .eyebrow{color:#fff}
+.blue-section .eyebrow:before{background:var(--orange)}
+
+/* Numeri dei passaggi: capsule arancioni. */
+.number{display:inline-block;padding:6px 16px;border-radius:999px;background:var(--orange);color:var(--ink);font-weight:900}
+.blue-section .number{color:var(--ink)}
+.process article,.timeline article{border-top:0;padding-top:0}
+.process article,.timeline article,.technical article{transition:transform .35s var(--ease)}
+.process article:hover,.timeline article:hover,.technical article:hover{transform:translateY(-6px)}
+.process h3,.timeline h3{margin-top:20px}
+.technical article{border-top:3px solid rgba(255,255,255,.5);border-radius:2px}
+.technical strong{font:italic 800 clamp(34px,3.4vw,46px)/1.1 var(--display)}
+.technical h3{font-size:22px}
+
+/* Dati in evidenza: schede tinta celeste con dischi arancioni. */
+.facts{border:0;gap:clamp(14px,2vw,26px);padding-block:clamp(32px,4vw,56px)}
+.facts span{padding:26px 24px;border-radius:26px;background:var(--tint);font-size:16px;letter-spacing:0;text-transform:none;color:var(--muted);transition:transform .35s var(--ease),box-shadow .35s}
+.facts span:before{content:'';display:block;width:34px;height:34px;border-radius:50%;background:var(--orange);margin-bottom:18px;box-shadow:20px 0 0 -6px var(--blue)}
+.facts span:hover{transform:translateY(-6px);box-shadow:0 18px 34px -22px #0e3a4080}
+.facts b{font:italic 800 23px/1.2 var(--display);color:var(--ink);margin-bottom:6px}
+
+/* ---------- Formati: miniature rotonde con cerchio arancione (pag. 6) ---------- */
+.product figure{aspect-ratio:1;border-radius:50%;overflow:visible;background:transparent;margin-bottom:22px}
+.product img{border-radius:50%;background:#f0f0ec;transition:transform .6s var(--ease)}
+.product:hover img{transform:rotate(-6deg) scale(1.04)}
+.product figure:after{content:'';position:absolute;right:-4%;bottom:-4%;width:56%;aspect-ratio:1;border-radius:50%;background:var(--orange);mix-blend-mode:multiply;opacity:.9;pointer-events:none;transition:transform .6s var(--ease)}
+.product:hover figure:after,.product:focus-visible figure:after{transform:translate(-18%,-14%) scale(1.12)}
+.product .plus{z-index:2;right:0;bottom:0;border:0;background:#fff;color:var(--ink);font-size:22px;font-weight:700;box-shadow:0 6px 16px -6px #0e3a4080;transition:transform .35s var(--ease),background .25s}
+.product:hover .plus{transform:rotate(90deg);background:var(--blue);color:#fff}
+.product h3{font-family:var(--display);font-weight:800;font-style:italic;font-size:27px;color:var(--orange-title);margin-bottom:2px}
+.product-line>span{font-weight:700;color:var(--orange-title);transition:transform .3s var(--ease)}
+.product:hover .product-line>span{transform:translate(3px,-3px)}
+.product small{font-size:15px;letter-spacing:0;color:var(--muted)}
+.product-grid{gap:clamp(16px,2.2vw,32px)}
+
+/* ---------- Foto in cerchio ---------- */
+.orb{position:relative;margin:0;width:100%;max-width:560px;aspect-ratio:1;justify-self:center;isolation:isolate}
+.orb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;transition:transform .8s var(--ease)}
+.orb:hover .orb-img{transform:scale(1.03)}
+.orb--overlay .orb-disc{position:absolute;z-index:1;right:-5%;bottom:-5%;width:60%;aspect-ratio:1;border-radius:50%;background:var(--orange);mix-blend-mode:multiply;opacity:.85;transition:transform .8s var(--ease)}
+.orb--overlay:hover .orb-disc{transform:scale(1.1)}
+.orb--ring .orb-img{inset:9%;width:82%;height:82%}
+.orb--ring:before{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange)}
+.orb--ring .orb-disc{position:absolute;inset:0;border-radius:50%;border:clamp(16px,2vw,28px) solid var(--orange);border-bottom-color:transparent;border-left-color:transparent;transform:rotate(-45deg);transition:transform 1.4s var(--ease)}
+.orb--ring:hover .orb-disc{transform:rotate(135deg)}
+
+/* ---------- Box: schede arrotondate ---------- */
+.box-grid{gap:clamp(18px,2.4vw,32px)}
+.box-card{position:relative;overflow:hidden;isolation:isolate;border:0;border-radius:30px;padding:38px 32px 34px;background:#fff;box-shadow:0 22px 50px -28px #0e3a4066,0 0 0 1px var(--line);transition:transform .4s var(--ease),box-shadow .4s}
+.box-card:before{content:'';position:absolute;z-index:-1;top:-70px;right:-60px;width:170px;aspect-ratio:1;border-radius:50%;background:var(--blue);transition:transform .6s var(--ease)}
+.box-card:nth-child(2):before{background:var(--orange)}
+.box-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px #0e3a4080,0 0 0 1px var(--line)}
+.box-card:hover:before{transform:scale(1.3)}
+.box-card h3{font-size:30px}
+.box-card .price{font:italic 800 40px/1.1 var(--display);color:var(--orange-title)}
+.box-card small{font-size:14px}
+
+/* ---------- Domande frequenti ---------- */
+.faq details{border:0;border-radius:22px;background:var(--tint);padding:22px 28px;margin-bottom:12px;transition:background .3s}
+.faq details:last-child{border-bottom:0}
+.faq details[open]{background:#e1f0f2}
+.faq summary{padding-right:52px;font-weight:700}
+.faq summary:after{content:'+';top:50%;right:0;width:36px;height:36px;margin-top:-18px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:var(--ink);font-size:22px;line-height:1;transition:transform .35s var(--ease)}
+.faq details[open] summary:after{content:'+';transform:rotate(45deg)}
+
+/* ---------- Moduli ---------- */
+input,select,textarea{font-size:17px;border-bottom-width:2px;transition:border-color .25s}
+input:focus,select:focus,textarea:focus{border-color:var(--orange);outline:none}
+input:focus-visible,select:focus-visible,textarea:focus-visible{box-shadow:0 2px 0 0 var(--orange)}
+
+/* ---------- Contatti ---------- */
+.topic-card figure{border-radius:26px}
+.topic-cta{border-radius:999px;padding:14px 22px}
+.why-facts li:before{width:12px;height:12px;border-radius:50%}
+.steps li{border-top:0;padding-top:0}
+.territory-visual{border-radius:28px}
+.map-pill{border-radius:999px}
+
+/* ---------- Scheda prodotto ---------- */
+dialog{border-radius:30px;padding:clamp(28px,4vw,52px)}
+dialog[open]{animation:dialog-in .45s var(--ease)}
+dialog::backdrop{background:rgba(61,131,136,.75);backdrop-filter:blur(3px)}
+@keyframes dialog-in{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.product-gallery #gallery-main{border-radius:24px;background:#f0f0ec}
+.gallery-thumbs button{border-radius:14px;overflow:hidden;transition:border-color .2s,transform .2s}
+.gallery-thumbs button:hover{transform:translateY(-2px)}
+.close-dialog{border-radius:50%;background:var(--tint)}
+
+/* ---------- Footer: celeste scuro con cerchio arancione (pagg. 9-10) ---------- */
+footer{position:relative;overflow:hidden;isolation:isolate;background:var(--teal-dark)}
+footer:before{content:'';position:absolute;z-index:-1;right:calc(-1 * clamp(100px,9vw,150px));bottom:calc(-1 * clamp(140px,13vw,210px));width:clamp(240px,24vw,380px);aspect-ratio:1;border-radius:50%;background:var(--orange)}
+.footer-top,.footer-grid{border-bottom-color:rgba(255,255,255,.28)}
+.footer-top p{font:italic 800 clamp(24px,2.4vw,32px)/1.3 var(--display)}
+footer .footer-title{font:700 13px/1.6 var(--sans);letter-spacing:2px;color:#fff}
+.footer-list{font-size:16px}
+.footer-address{font-size:16px}
+.footer-cta{font-size:16px;font-weight:700;border-bottom:3px solid var(--orange)}
+.footer-bottom{font-size:13px;color:#e6f0f0}
+.social-link{border-color:rgba(255,255,255,.4);border-radius:999px}
+.footer-list .icon,.footer-cta .icon{color:#fff}
+.footer-list a:hover,.footer-cta:hover,.footer-address a:hover,a.social-link:hover{color:#ffd29a;border-color:#ffd29a}
+
+/* ---------- Comparsa allo scorrimento (attivata da site.js) ---------- */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media print{.reveal{opacity:1!important;transform:none!important}}
+
+/* ---------- Tablet ---------- */
+@media(max-width:1100px){
+  #main-navigation{font-size:18px}
+  nav a:not(.nav-box):after{right:auto;width:40px}
+  nav .nav-box{align-self:flex-start;padding:10px 22px;margin-top:8px}
+}
+@media(min-width:761px) and (max-width:1100px){
+  .hero-text{width:52%}
+  .hero h1{font-size:clamp(46px,6.4vw,70px)}
+  .hero-visual{right:3%;width:min(42vw,460px)}
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:760px){
+  body{font-size:17px}
+  h1,.page-head h1{font-size:clamp(38px,10vw,54px);letter-spacing:-.4px}
+  h2,.prose h2{font-size:clamp(31px,8vw,42px);letter-spacing:-.3px}
+  .eyebrow{font-size:16px;letter-spacing:0;line-height:1.4}
+  .topline .topline-location{font-size:12px}
+  .topline .topline-slogan{font-size:14px}
+
+  .hero{display:flex;flex-direction:column;min-height:0;padding-bottom:84px}
+  .hero-text{order:1;width:auto;max-width:none;margin:44px 6% 40px}
+  .hero-visual{order:2}
+  .hero-text p{font-size:18px}
+  .hero-visual{position:relative;right:auto;top:auto;transform:none;width:min(80vw,380px);margin:0 auto}
+  .hero-sun{width:170px;top:-80px;right:-70px}
+  .hero-foot{font-size:11px;bottom:22px}
+
+  .page-head{padding-right:6%}
+  .page-head:before{right:8%;width:44px;height:84px}
+  .page-head:after{display:none}
+  .page-head p{font-size:18px}
+  .page-head h1{padding-right:40px}
+
+  .section-heading p{font-size:17px}
+  .facts span{padding:20px 18px;font-size:15px}
+  .facts b{font-size:20px}
+  .product h3{font-size:26px}
+  .product small{font-size:15px}
+  .orb{max-width:420px}
+  .quote{font-size:22px}
+  summary{font-size:18px}
+  .faq details{padding:18px 20px}
+  .box-card{padding:32px 26px 28px}
+  .footer-bottom{font-size:13px}
+  footer:before{width:200px;right:-90px;bottom:-120px}
+}
+@media(max-width:380px){
+  .facts span{padding:18px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none}
+  .hero-img,.hero-disc,.page-head:before,.page-head:after,dialog[open]{animation:none}
+}

@@ -1,0 +1,8 @@
+---
+// <img> ottimizzato (WebP + srcset) che conserva esattamente gli attributi del markup originale:
+// non aggiunge width/height se non vengono passati, per non alterare il CSS esistente.
+import { optimized } from '../data/images.js';
+const { name, sizes = '100vw', widths, ...attrs } = Astro.props;
+const img = await optimized(name, widths);
+---
+<img src={img.src} srcset={img.srcset} sizes={sizes} {...attrs} />

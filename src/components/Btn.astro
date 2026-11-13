@@ -1,0 +1,5 @@
+---
+import { href } from '../data/site.js';
+const { label, path, light = false } = Astro.props;
+---
+<a class={`button ${light ? 'light' : ''}`} href={href(path)}>{label}<span>↗</span></a>

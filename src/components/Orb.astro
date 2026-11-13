@@ -1,0 +1,11 @@
+---
+// Foto in un cerchio, come nella brochure.
+// variant="overlay": cerchio arancione trasparente che si sovrappone alla foto (pagg. 4, 6).
+// variant="ring": foto dentro un anello arancione, pieno nella metà superiore (pag. 5).
+import Img from './Img.astro';
+const { variant = 'overlay', class: className = '', ...imgProps } = Astro.props;
+---
+<figure class:list={['orb', `orb--${variant}`, className]}>
+  <Img class="orb-img" {...imgProps} />
+  <span class="orb-disc" aria-hidden="true" data-parallax="-0.05"></span>
+</figure>

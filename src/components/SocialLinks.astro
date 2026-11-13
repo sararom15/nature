@@ -1,0 +1,12 @@
+---
+// Link ai social. Se l'URL in src/data/site.js è vuoto, mostra solo icona e nome, non cliccabili.
+import Icon from './Icon.astro';
+import { social } from '../data/site.js';
+---
+<ul class="social-list">
+  {social.map((s) => (
+    <li>{s.url
+      ? <a class="social-link" href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`Nature su ${s.label} (si apre in una nuova scheda)`}><Icon name={s.id} />{s.label}</a>
+      : <span class="social-link is-soon"><Icon name={s.id} />{s.label}</span>}</li>
+  ))}
+</ul>

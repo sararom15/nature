@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Img from '../components/Img.astro';
+import Btn from '../components/Btn.astro';
+import PageHead from '../components/PageHead.astro';
+import BoxCards from '../components/BoxCards.astro';
+---
+<Layout path="box">
+<PageHead eyebrow="Box degustazione" title="Da assaggiare.<br><em>Da condividere.</em>" intro="Una prima occasione per conoscere Nature, attraverso i formati della nostra pasta. Per la tua cucina o per un regalo che racconta da dove viene." /><Img class="wide-photo" name="0272.jpg" alt="I formati della pasta Nature; immagine del prodotto, non della confezione regalo" sizes="(max-width:760px) 88vw, 84vw" />
+<section class="section"><div class="section-heading"><div><span class="eyebrow">Le proposte</span><h2>Tre modi di cominciare.</h2></div><p>Le box sono in definizione. I prezzi sono indicativi: contenuto, confezione, disponibilità e consegna saranno confermati prima di ogni acquisto.</p></div><BoxCards /></section>
+<section class="section blue-section split"><div><span class="eyebrow">Come funziona</span><h2>Prima ci scrivi.<br>Poi scegli.</h2></div><div><p>Indica la box che ti interessa e la città di destinazione. Ti daremo informazioni su composizione, prezzo definitivo, disponibilità e modalità di consegna prima della conferma.</p><p>Le box sono legate alle confezioni disponibili, dopo aver riservato quelle destinate alle prove professionali.</p><Btn label="Chiedi informazioni sulle box" path="contatti?interesse=box" light /></div></section>
+<section class="section"><div class="faq"><span class="eyebrow">Prima di scegliere</span><h2>Qualche risposta utile.</h2><details><summary>Posso scegliere i formati?</summary><p>Per comunicarci le tue preferenze, vai alla <a class="source-link" href="/contatti/?interesse=box">pagina Contatti</a>, seleziona “Box degustazione” e indica nel messaggio i formati che vorresti ricevere.</p></details><details><summary>Si possono richiedere box aziendali?</summary><p>Sì. Vai alla <a class="source-link" href="/contatti/?interesse=aziendali">pagina Contatti</a> e seleziona “Box aziendali”. Indica il numero orientativo di box, la data entro cui ti servono e aggiungi nel messaggio eventuali dettagli sulla richiesta.</p></details></div></section>
+</Layout>

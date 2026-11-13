@@ -1,0 +1,24 @@
+---
+// Contenuto della scheda prodotto, generato in fase di build: lo script lo copia nel <dialog>.
+import Btn from './Btn.astro';
+import { products } from '../data/site.js';
+import { optimized } from '../data/images.js';
+
+const items = await Promise.all(products.map(async (p) => {
+  const slug = p.name.toLowerCase();
+  const photos = [
+    { name: p.img, alt: `${p.name} Nature: pasta secca` },
+    { name: `${slug}-pack.jpg`, alt: `${p.name} Nature: precedente confezione da 250 g` },
+    { name: `${slug}-side.jpg`, alt: `${p.name} Nature: vista laterale della precedente confezione` },
+  ];
+  for (const photo of photos) {
+    photo.full = await optimized(photo.name, [600, 900, 1200]);
+    photo.thumb = await optimized(photo.name, [160]);
+  }
+  return { ...p, photos };
+}));
+const mainSizes = '(max-width:760px) 90vw, 45vw';
+---
+{items.map((p, i) => (
+<template id={`product-tpl-${i}`}><div class="dialog-grid"><div class="product-gallery"><img id="gallery-main" src={p.photos[0].full.src} srcset={p.photos[0].full.srcset} sizes={mainSizes} alt={p.photos[0].alt}><div class="gallery-thumbs" aria-label="Fotografie del prodotto">{p.photos.map((photo, n) => (<button type="button" data-photo={n} data-src={photo.full.src} data-srcset={photo.full.srcset} aria-label={photo.alt} aria-pressed={String(n === 0)}><img src={photo.thumb.src} alt=""></button>))}</div><p class="note">Le foto delle confezioni mostrano la precedente presentazione da 250 g. La gamma proposta è da 500 g.</p></div><div><span class="eyebrow">{p.kind} · 500 g</span><h2 id="product-title">{p.name}</h2><p>{p.desc}</p><hr class="divider"><p>Macinatura a pietra<br>Trafilatura al bronzo<br>Essiccazione: 32–36 ore<br>Temperatura massima: 45–46 °C</p><p class="note">Per cottura, ingredienti e allergeni consulta l’etichetta della confezione.</p><Btn label="Informazioni per provarla" path="contatti?interesse=box" /></div></div></template>
+))}
