@@ -1,4 +1,4 @@
 ---
 import { boxes, href } from '../data/site.js';
 ---
-<div class="box-grid">{boxes.map((b, i) => (<article class="box-card"><span class="badge">0{i + 1} / Proposta degustazione</span><h3>{b.n}</h3><p>{b.d}</p><span class="price">{b.p}</span><small>Prezzo indicativo · Contenuto da confermare</small><a class="text-link" href={href(`contatti?interesse=box&box=${i + 1}`)}>Chiedi informazioni ↗</a></article>))}</div>
+<div class="box-grid">{boxes.map((b, i) => (<article class="box-card"><span class="badge">0{i + 1} / Proposta degustazione</span><h3>{b.n}</h3><p>{b.d}</p><span class="price">{b.p}</span><small>Prezzo indicativo · Contenuto da confermare</small><a class="text-link" href={href(`contatti?interesse=box&box=${i + 1}`)}>Chiedi informazioni</a></article>))}</div>

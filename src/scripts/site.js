@@ -72,6 +72,7 @@ function showProduct(i) {
     main.srcset = b.dataset.srcset;
     main.src = b.dataset.src;
     main.alt = b.getAttribute('aria-label');
+    main.dataset.photo = b.dataset.photo;
     thumbs.forEach((t) => t.setAttribute('aria-pressed', String(t === b)));
   }));
   content.querySelector('a').addEventListener('click', () => dialog.close());

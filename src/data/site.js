@@ -17,7 +17,7 @@ export const nav = [
   { path: 'azienda', label: 'L’Azienda Agricola' },
   { path: 'pasta', label: 'La Nostra Pasta' },
   { path: 'professionisti', label: 'Professionisti' },
-  { path: 'box', label: 'Le Box ↗', className: 'nav-box' },
+  { path: 'box', label: 'Le Box', className: 'nav-box' },
   { path: 'contatti', label: 'Contatti', className: 'contact-link' },
 ];
 

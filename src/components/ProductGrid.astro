@@ -2,4 +2,4 @@
 import Img from './Img.astro';
 import { products } from '../data/site.js';
 ---
-<div class="product-grid">{products.map((p, i) => (<button class="product" data-product={i} aria-label={`Scopri ${p.name}`}><figure><Img name={p.img} alt={`${p.name} Nature: dettaglio della pasta secca`} loading="lazy" widths={[400, 600, 800]} sizes="(max-width:760px) 70vw, (max-width:1050px) 33vw, 20vw" /><span class="plus">+</span></figure><div class="product-line"><h3>{p.name}</h3><span>↗</span></div><small>{p.kind} · 500 g</small></button>))}</div>
+<div class="product-grid">{products.map((p, i) => (<button class="product" data-product={i} data-shape={p.name.toLowerCase()} aria-label={`Scopri ${p.name}`}><figure><span class="product-photo"><Img name={p.img} alt={`${p.name} Nature: dettaglio della pasta secca`} loading="lazy" widths={[400, 600, 800]} sizes="(max-width:760px) 46vw, (max-width:1050px) 33vw, 20vw" /></span><span class="plus">+</span></figure><div class="product-line"><h3>{p.name}</h3></div><small>{p.kind} · 500 g</small></button>))}</div>
